@@ -1,10 +1,8 @@
 
-![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Lethalzh&show_icons=true&theme=dracula)
-
 # vue-blizzard
 
 ## 仿暴雪游戏商城
-
+Fork from: https://github.com/LBWNB-No-Bug/vue-Blizzard
 
 ## 通过本项目你可以了解到
 - Vue.js基本语法
@@ -13,10 +11,13 @@
 - Vue-Router的基本使用
 - element ui 的基本使用
 - axios访问数据的封装
+- JAVA&JDBC
 
 
-**提示** 如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！
-
+## 未完善功能&问题
+- login.vue 登录&后端
+- 商品页面只跳转到炉石
+- ~~或许会做心愿单和购物吧~~
 
 ## 参考文档
 
