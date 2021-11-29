@@ -16,6 +16,7 @@
 				<li><a href="#">安全中心</a></li>
 			</ul>
 		</div>
+    <h1>这是一个高仿的页面</h1>
 		<div class="clearall"></div>
 		<div class="copyright">
 			<p>@2020暴风雪娱乐有限公司版权所有。</p>

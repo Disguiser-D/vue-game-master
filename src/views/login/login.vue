@@ -38,7 +38,7 @@ export default {
 				console.log(this.pwd)
 			},
 			decide(){
-				if(this.username=='zh'&&this.pwd=='123456')
+				if(this.username==='zh'&&this.pwd==='123456')
 				{
 					alert('登陆成功！');
 				}
