@@ -11,12 +11,13 @@
   </div>
 </template>
 <script>
-	import vhead from '../../components/myHeader/myhead.vue'
-	import headtow from '../../components/headTow/headTow.vue'
-	import vfoot from '@/components/footer/footer.vue'
-	import pro from './Product_info.vue'
-	import shopping from './shopping.vue'
-	export default{
+import vhead from '../../components/myHeader/myhead.vue'
+import headtow from '../../components/headTow/headTow.vue'
+import vfoot from '@/components/footer/footer.vue'
+import pro from './Product_info.vue'
+import shopping from './shopping.vue'
+
+export default{
 		name:'About',
 		components:{
 			vhead,

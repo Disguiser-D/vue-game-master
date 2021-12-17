@@ -62,14 +62,14 @@
 </template>
 
 <script>
-    import myheader from '@/components/myHeader/myhead'
-    import VFooter from '@/components/footer/footer'
-    import headTow from '@/components/headTow/headTow'
-    import Unity from '@/components/unity/unity'
+import myheader from '@/components/myHeader/myhead'
+import VFooter from '@/components/footer/footer'
+import headTow from '@/components/headTow/headTow'
+import Unity from '@/components/unity/unity'
 
-    import { getGameContent } from '@/api'
+import {getGameContent} from '@/api'
 
-    export default {
+export default {
         name: 'GameContent',
         data() {
             return {

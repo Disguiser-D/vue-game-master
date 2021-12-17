@@ -64,9 +64,6 @@ import mydetails from './mydetails.vue'
 import myheader from '@/components/myHeader/myhead'
 import headTow from '@/components/headTow/headTow'
 import VFooter from '@/components/footer/footer'
-import GameIcon from '@/components/GameIcon/GameIcon'
-import { getHome } from '@/api'
-
 
 
 export default {
