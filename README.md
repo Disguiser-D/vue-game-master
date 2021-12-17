@@ -3,6 +3,7 @@
 
 ## 仿暴雪游戏商城
 Fork from: https://github.com/LBWNB-No-Bug/vue-Blizzard
+This depends on: https://github.com/Disguiser-D/blizzard-game-demo
 
 ## 通过本项目你可以了解到
 - Vue.js基本语法
@@ -12,6 +13,7 @@ Fork from: https://github.com/LBWNB-No-Bug/vue-Blizzard
 - element ui 的基本使用
 - axios访问数据的封装
 - JAVA&JDBC
+- Vue路由守护和HTTP拦截器
 
 
 ## 未完善功能&问题

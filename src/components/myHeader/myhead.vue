@@ -37,8 +37,9 @@
 
 <script>
 
-  import GameIcon from '@/components/GameIcon/GameIcon'
-  export default {
+import GameIcon from '@/components/GameIcon/GameIcon'
+
+export default {
 
     data () {
       return {

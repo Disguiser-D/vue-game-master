@@ -56,7 +56,7 @@
 				</div>
 			</div>
 			<div class="capt">
-				<input class="cap1" type="text" v-model="captcha" placeholder="验证码" />
+				<input class="cap1" type="text" v-model="captcha" placeholder="验证码"/>
 				<input class="cap2" type="button" value="获取验证码" />
 			</div>
 			<div class="hread">
@@ -65,14 +65,13 @@
 					<a :href="hrlink">
 						隐私政策
 						<i class="el-icon-link"></i>
-						。
 					</a>
 				</div>
 			</div>
 			<div class="clearall"></div>
 			<div class="from-btn">
-				<input type="button" class="btn1" value="免费注册暴雪游戏通行证" />
-				<input type="button" class="btn2" value="已经有通行证了?" />
+				<input type="button" class="btn1" @click="register()" value="免费注册暴雪游戏通行证" />
+				<a href="/login"><input type="button" class="btn2" value="已经有通行证了?" /></a>
 			</div>
 			<div class="fine-print">
 				<p>
@@ -89,7 +88,10 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+  // TODO: 注册
 	name: 'register',
 	data() {
 		return {
@@ -115,7 +117,26 @@ export default {
 		},
 		checkednum: function(che) {
 			return (this.chenum = !che);
-		}
+		},
+    register() {
+      const url = 'api/user/register';
+      axios.post(url, {
+        // TODO: 手机验证码需要API支持
+        "captcha": "1111",
+        "email": this.useremail,
+        "identityId": this.userid,
+        "name": this.username,
+        "password": this.userpwd,
+        "phone": this.phone_num
+      }).then(function (response) {
+        console.log(response);
+      })
+          .catch(
+              function (error) {
+                console.log(error);
+                alert('请求失败');
+              })
+    }
 	}
 };
 </script>

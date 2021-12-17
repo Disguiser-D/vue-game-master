@@ -20,9 +20,9 @@
 </template>
 
 <script>
-    import GameIcon from "@/components/GameIcon/GameIcon"
+import GameIcon from "@/components/GameIcon/GameIcon"
 
-    export default {
+export default {
         name:'shopping',
         components: {
             GameIcon

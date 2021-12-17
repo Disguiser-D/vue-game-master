@@ -36,11 +36,10 @@
 
 <script>
 
-  import popup from './popup.vue'
-  import GameIcon from '@/components/GameIcon/GameIcon'
-  import { getHome } from '@/api'
+import popup from './popup.vue'
+import GameIcon from '@/components/GameIcon/GameIcon'
 
-  export default {
+export default {
     data () {
       return {
         activeIndex: '1',

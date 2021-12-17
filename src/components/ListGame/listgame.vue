@@ -10,9 +10,9 @@
 </template>
 
 <script>
-    import Unity from '@/components/unity/unity'
+import Unity from '@/components/unity/unity'
 
-    export default {
+export default {
         name: 'list-game',
         props: {
             data: {},
