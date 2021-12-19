@@ -1,6 +1,6 @@
 <template>
 	<div class="reg">
-		<img class="logo" :src="logo" />
+		<a href="/"><img class="logo" :src="logo"  alt=""/></a>
 		<div class="title">
 			<h1>创建账号</h1>
 			<button class="wy">网易</button>
@@ -129,7 +129,11 @@ export default {
         "password": this.userpwd,
         "phone": this.phone_num
       }).then(function (response) {
-        console.log(response);
+        if (response.status === 200) {
+          console.log(response);
+        } else {
+          alert("注册失败！原因：")
+        }
       })
           .catch(
               function (error) {
