@@ -1,7 +1,7 @@
 <template>
   <div class="unity">
   <!--TODO: 这里是商品列表加载    -->
-    <div @click="shop_info(item)">
+<!--    <div @click="shop_info(item)">-->
       <div class="game"
            :style="{backgroundImage: `url( ${item.bgImgUrl} )`}"
       >
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-  </div>
+<!--  </div>-->
 </template>
 
 <script>

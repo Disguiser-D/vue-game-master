@@ -8,7 +8,7 @@ axios.defaults.timeout = 8000;
 axios.interceptors.request.use(
     config => {
         if (localStorage.Authorization) { //判断token是否存在
-            config.headers.Authorization = localStorage.Authorization;  //将token设置成请求头
+            config.headers.Authorization = localStorage.Authorization.slice(1,-1);  //将token设置成请求头
         }
         return config;
     },
@@ -20,11 +20,12 @@ axios.interceptors.request.use(
 // http response 拦截器
 axios.interceptors.response.use(
     response => {
-        if (response.status !== 200) {
+        if (response.status === 403) {
             // TODO: 判断Authorization传入后端后是否还合法
             router.replace('/');
             console.log("token过期");
         }
+        console.log(response.status)
         return response;
     },
     error => {

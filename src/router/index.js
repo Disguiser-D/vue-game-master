@@ -96,6 +96,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
     if (localStorage.Authorization) {  // 获取当前的token是否存在
       console.log("token存在");
+      console.log(localStorage.Authorization)
       next();
     } else {
       console.log("token不存在");

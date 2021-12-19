@@ -3,6 +3,7 @@
 
 ## 仿暴雪游戏商城
 Fork from: https://github.com/LBWNB-No-Bug/vue-Blizzard
+
 This depends on: https://github.com/Disguiser-D/blizzard-game-demo
 
 ## 通过本项目你可以了解到
@@ -14,6 +15,7 @@ This depends on: https://github.com/Disguiser-D/blizzard-game-demo
 - axios访问数据的封装
 - JAVA&JDBC
 - Vue路由守护和HTTP拦截器
+- Jest单元测试
 
 
 ## 未完善功能&问题
@@ -30,4 +32,6 @@ This depends on: https://github.com/Disguiser-D/blizzard-game-demo
 - [element-ui](https://element.eleme.io/#/zh-CN)：Element,一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库。
  
 - [vue-cli](https://cli.vuejs.org/zh/guide/)
+
+- [vue-jest](https://vue-test-utils.vuejs.org/zh/installation/testing-single-file-components-with-jest.html)
 
