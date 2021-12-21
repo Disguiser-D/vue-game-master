@@ -35,7 +35,7 @@
 <script>
 
 import cardDiv from "./cardDiv"
-import axios from "axios";
+import {getUserInfo} from "@/api";
 
 export default {
   data() {
@@ -57,7 +57,7 @@ export default {
       let str = '';
       //map() 方法返回一个新数组,数组中的元素为原始数组元素调用函数处理后的值
       arrBox.map((res, index) => {
-        if (index > 3 && index < 11) {
+        if (index > 3 && index < 8) {
           str += '*';
           // return '*';
         } else {
@@ -68,24 +68,25 @@ export default {
       return str;
     },
     get_user_info() {
-      const url = '/api/user/get_info';
-      axios.get(url).then((results) => {
-        if (results.status !== 200) {
-          // console.log(results);
-          this.user_name = results.data.data.username;
-          this.email = results.data.data.email;
-          this.mobile_phone = results.data.data.phone;
-          this.identityId = this.structure(results.data.data.identityId);
-          this.system_name = results.data.data.name;
+      getUserInfo().then((results) => {
+        if (results.status !== 403) {
+          // console.log(results.data);
+          this.user_name = results.data.username;
+          this.email = results.data.email;
+          this.mobile_phone = results.data.phone;
+          this.identityId = this.structure(results.data.identityId);
+          this.system_name = results.data.name;
           // console.log(results);
         } else {
           localStorage.removeItem("Authorization");
+          // console.log(results.data.name);
           this.$router.push("/login")
+          alert('mydetails清空了token');
         }
       }).catch(
           function (error) {
             console.log(error);
-            localStorage.removeItem("Authorization");
+            // localStorage.removeItem("Authorization");
             this.$router.push("/login")
             alert('请求失败');
           })

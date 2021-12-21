@@ -82,7 +82,7 @@
 
 import cardDiv from "./cardDiv"
 import GameIcon from '@/components/GameIcon/GameIcon'
-import axios from "axios";
+import {getUserInfo} from "@/api";
 
 export default {
   data() {
@@ -146,14 +146,13 @@ export default {
       return str;
     },
     get_user_info() {
-      const url = '/api/user/get_info';
-      axios.get(url).then((results) => {
+      getUserInfo().then((results) => {
         // console.log(results);
-        this.comm[1].comm = results.data.data.username;
-        this.comm[2].comm = results.data.data.email;
-        this.comm[3].comm = results.data.data.phone;
-        this.comm[4].comm = this.structure(results.data.data.identityId);
-        this.comm[0].comm = results.data.data.name;
+        this.comm[1].comm = results.data.username;
+        this.comm[2].comm = results.data.email;
+        this.comm[3].comm = results.data.phone;
+        this.comm[4].comm = this.structure(results.data.identityId);
+        this.comm[0].comm = results.data.name;
         // console.log(results);
 
       }).catch(

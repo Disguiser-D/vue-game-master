@@ -14,7 +14,7 @@
             <li class="listIco"
                 v-for="(item,index) in ListIcon"
                 :key="index"
-                :title="item.GameName">
+                :title="item.gameName">
               <game-icon class="game-icon" :size="2"
                          :type="item.type"></game-icon>
             </li>
@@ -62,13 +62,14 @@ export default {
   methods: {
     _getHome() {
       getHome().then( (res) => {
-        this.Carousel = res.Carousel
-        this.ListIcon = res.ListIcon
-        this.logo = res.Logo
-        this.ListGame.push(res.recommend)
-        this.ListGame.push(res.Featured)
-        this.ListGame.push(res.Now)
-        this.ListGame.push(res.Popular)
+        this.Carousel = res.data.carousel
+        this.ListIcon = res.data.listIcon
+        this.logo = res.data.logo
+        this.ListGame.push(res.data.recommend)
+        this.ListGame.push(res.data.featured)
+        this.ListGame.push(res.data.now)
+        this.ListGame.push(res.data.popular)
+        console.log(this.ListIcon)
       })
     }
   },

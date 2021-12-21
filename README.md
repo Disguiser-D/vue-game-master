@@ -19,8 +19,8 @@ This depends on: https://github.com/Disguiser-D/blizzard-game-demo
 
 
 ## 未完善功能&问题
-- login.vue 登录&后端
-- 商品页面只跳转到炉石
+- login.vue 登录&后端[已解决]
+- 商品页面只跳转到炉石[已解决]
 - ~~或许会做心愿单和购物吧~~
 
 ## 参考文档
