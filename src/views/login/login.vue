@@ -27,6 +27,7 @@
 import vfoot from '@/components/footer/footer.vue'
 import axios from 'axios';
 import router from "@/router";
+import {userLogin} from "@/api";
 
 
 export default {
@@ -45,14 +46,13 @@ export default {
       console.log(this.password)
     },
     decide() {
-      const url = 'api/user/login';
-      axios.post(url, {
+      axios.post(userLogin, {
         "username": this.username,
         "password": this.password
       }).then(function (response) {
         if (response.data.code === 200) {
-          console.log(response);
-          console.log(response.data.data)
+          // console.log(response);
+          // console.log(response.data.data)
           //全局存储token
           window.localStorage["Authorization"] = JSON.stringify(response.data.data);
           alert("登陆成功！");

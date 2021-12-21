@@ -59,7 +59,7 @@
 <script>
 
 import GameIcon from '@/components/GameIcon/GameIcon'
-import axios from "axios";
+import {getUserInfo} from "@/api";
 
 export default {
 
@@ -68,7 +68,7 @@ export default {
       activeIndex: '1',
       activeIndex4: '1',
       islogin: false,
-      name: "null"
+      name: ""
     };
   },
   methods: {
@@ -86,35 +86,35 @@ export default {
     //   }
     // },
     get_user_info() {
-      const url = '/api/user/get_info';
-      axios.get(url).then((results) => {
-        if (results.status !== 403) {
-          console.log(results);
+     getUserInfo().then((results) => {
+        if (results.status !== 200) {
+          // console.log(results);
           // this.comm[1].comm = results.data.data.username;
           // this.comm[2].comm = results.data.data.email;
           // this.comm[3].comm = results.data.data.phone;
           // this.comm[4].comm = this.structure(results.data.data.identityId);
-          this.name = results.data.data.name;
+          this.name = results.data.name;
           this.islogin = true
           // console.log(results);
         } else {
           this.name = "None";
           localStorage.removeItem("Authorization");
+          // alert('myhead清空了token');
         }
       }).catch(
           function (error) {
             localStorage.removeItem("Authorization");
+            // alert('myhead-error清空了token');
             // console.log(error);
             // alert('请求失败');
           })
     },
     get_out_account() {
-      const url = '/api/user/get';
-      axios.post(url).then((results) => {
+      getOut().then((results) => {
         if (results.status !== 403) {
           console.log(results);
         } else {
-          alert("???")
+          console.log(results);
         }
       }).catch(
           function (error) {

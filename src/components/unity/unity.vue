@@ -1,27 +1,31 @@
 <template>
   <div class="unity">
-  <!--TODO: 这里是商品列表加载    -->
-<!--    <div @click="shop_info(item)">-->
-      <div class="game"
-           :style="{backgroundImage: `url( ${item.bgImgUrl} )`}"
-      >
-        <div class="conten-wrapper">
-          <game-icon class="game-icon"
-                     :size=2
-                     :type="item.iconType >= 0?item.iconType:9"></game-icon>
-          <p class="text">{{ item.text }}</p>
-          <p class="text-Golden">{{ item.Golden }}</p>
-          <p class="text-white">{{ item.white }}</p>
-          <p class="price">{{ item.price === 0 ? "免费" : "￥" + item.price }}</p>
-        </div>
+    <!--TODO: 这里是商品列表加载    -->
+        <div @click="shop_info(item.jump)">
+    <div class="game"
+         :style="{backgroundImage: `url( ${item.bgImgUrl} )`}"
+    >
+      <div class="conten-wrapper">
+        <game-icon class="game-icon"
+                   :size=2
+                   :type="item.iconType >= 0?item.iconType:9"></game-icon>
+        <p class="text">{{ item.text }}</p>
+        <p class="text-Golden">{{ item.golden }}</p>
+        <p class="text-white">{{ item.white }}</p>
+        <p class="price" v-if="is_discount(item.newPrice)">{{ item.oldPrice === 0 ? "免费" : "￥" + item.oldPrice }}</p>
+        <div class="priceDiscount" v-else><del class="price">{{  "￥" + item.oldPrice }}</del>
+         {{  "￥" + item.newPrice }}
+          <div class="meka-price-label--discount-label">-{{  100-item.discount*100 }}%</div></div>
       </div>
     </div>
-<!--  </div>-->
+  </div>
+    </div>
 </template>
 
 <script>
 import GameIcon from '@/components/GameIcon/GameIcon'
 import axios from "axios";
+import {shopInfo} from "@/api";
 
 export default {
   name: 'unity',
@@ -32,11 +36,12 @@ export default {
     GameIcon
   },
   methods: {
-    shop_info(item){
-      // console.log(item.text)
-      axios
-          .get("/api/")
-          .then(response => {console.log(response)})
+    shop_info(shop_id) {
+      this.$router.push({path:"/about",query:{ shop_id:shop_id }})
+    },
+    is_discount(newprice){
+      // console.log(this.item);
+      return newprice === 0;
     }
   }
 }
@@ -86,9 +91,32 @@ export default {
 }
 
 .conten-wrapper .price {
-  font-size: 16px;
+  align-items: center;
+  //display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  //font-size: 16px;
   color: white;
-  position: absolute;
-  top: 165px;
+  //display: inline-block;
+  //position: absolute;
+  //top: 165px;
+}
+.conten-wrapper .priceDiscount {
+  color: #6cdb00;
+  //padding-right: 100px;
+  //float: right;
+  //display: inline-block;
+}
+.conten-wrapper .meka-price-label--discount-label {
+  background-color: #6cdb00;
+  border-radius: 5px;
+  color: black;
+  display: inline-block;
+  margin-left: 1px;
+  padding: 1px 1px;
+  white-space: nowrap;
+  float: right;
+  font-size: 14px;
+  //display: inline-block;
 }
 </style>

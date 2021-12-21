@@ -89,6 +89,7 @@
 
 <script>
 import axios from "axios";
+import {userRegister} from "@/api";
 
 export default {
   // TODO: 注册
@@ -119,8 +120,7 @@ export default {
 			return (this.chenum = !che);
 		},
     register() {
-      const url = 'api/user/register';
-      axios.post(url, {
+      axios.post(userRegister, {
         // TODO: 手机验证码需要API支持
         "captcha": "1111",
         "email": this.useremail,
