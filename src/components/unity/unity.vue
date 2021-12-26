@@ -12,8 +12,8 @@
           <p class="text">{{ item.text }}</p>
           <p class="text-Golden">{{ item.golden }}</p>
           <p class="text-white">{{ item.white }}</p>
-          <p class="price" v-if="isExistPrice(item.newPrice)">{{ item.price === 0 ? "免费" : "￥" + item.price }}</p>
-          <p class="price" v-else-if="is_discount(item.newPrice)&&isExistPrice(item.newPrice)">
+          <p class="price" v-if="isExistPrice(item.price)">{{ item.price === 0 ? "免费" : "￥" + item.price }}</p>
+          <p class="price" v-else-if="is_discount(item.newPrice)">
             {{ item.oldPrice === 0 ? "免费" : "￥" + item.oldPrice }}</p>
           <div class="priceDiscount" v-else>
             <del class="price">{{ "￥" + item.oldPrice }}</del>
@@ -44,15 +44,11 @@ export default {
     },
     is_discount(newprice) {
       // console.log(this.item);
-      if (newprice) {
         return newprice === 0;
-      } else {
-        return false;
-      }
     },
     isExistPrice(price) {
       // console.log(!price);
-      return !price;
+      return !!price;
     }
   }
 }
