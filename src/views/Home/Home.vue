@@ -2,7 +2,7 @@
   <div ref="body" class="body" onscroll="">
     <myheader/>
     <headTow/>
-<!--    <userCenter/>-->
+    <!--    <userCenter/>-->
     <div class="main">
       <carousel :Carousel="Carousel"></carousel>
       <div class="ListGameIco">
@@ -25,10 +25,10 @@
                  :bt="list[index]"
                  :data="item"
                  :key="index"
-        ></list-game>
-        <el-backtop class="top">
-            <i class="el-icon-caret-top"></i>
-        </el-backtop>
+      ></list-game>
+      <el-backtop class="top">
+        <i class="el-icon-caret-top"></i>
+      </el-backtop>
     </div>
     <v-footer :logo="logo"></v-footer>
   </div>
@@ -47,11 +47,11 @@ import {getHome} from '@/api'
 
 export default {
   name: 'Home',
-  data () {
+  data() {
     return {
       Carousel: {},
       ListIcon: {},
-      logo:"",
+      logo: "",
       ListGame: [],
       list: ["推荐", "精选", "当下流行", "热门赠礼"]
     }
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     _getHome() {
-      getHome().then( (res) => {
+      getHome().then((res) => {
         this.Carousel = res.data.carousel
         this.ListIcon = res.data.listIcon
         this.logo = res.data.logo
@@ -69,7 +69,7 @@ export default {
         this.ListGame.push(res.data.featured)
         this.ListGame.push(res.data.now)
         this.ListGame.push(res.data.popular)
-        console.log(this.ListIcon)
+        // console.log(this.ListIcon)
       })
     }
   },
@@ -85,26 +85,31 @@ export default {
 </script>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .body {
   background-color: #062959;
   font-family: "微软雅黑";
 }
+
 .top {
   width: 48px;
   height: 48px;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
   border-radius: 0;
 }
+
 .top:hover {
-    background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
 }
+
 .top:hover .el-icon-caret-top {
-    color: #5cb9ec;
+  color: #5cb9ec;
 }
+
 .top .el-icon-caret-top {
   font-size: 32px;
   position: absolute;
@@ -112,7 +117,8 @@ export default {
   top: 7px;
   color: #009ae4;
 }
-.el-carousel__arrow--left,.el-carousel__arrow--right{
+
+.el-carousel__arrow--left, .el-carousel__arrow--right {
   width: 40px;
   height: 80px;
   color: #009ae4;
@@ -120,23 +126,28 @@ export default {
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, .15);
 }
+
 .el-carousel__arrow--left {
   left: 16px;
   font-size: 45px;
   color: #91e4ff;
 }
+
 .el-carousel__arrow--right {
   right: 20px;
   font-size: 45px;
   color: #91e4ff;
 }
+
 .listIco-wrapper .game-icon {
   transition: all 0.3s;
-  cursor:pointer;
+  cursor: pointer;
 }
+
 .listIco-wrapper .game-icon:hover {
-  transform:scale(1.3);
+  transform: scale(1.3);
 }
+
 .ListGameIco {
   width: 100%;
   height: 66px;
@@ -145,27 +156,32 @@ export default {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .ListGame-wrapper {
   width: 600px;
   height: 60px;
   margin: 0 auto;
   padding-top: 5px;
 }
+
 .bt-wrapper {
   float: left;
   padding-top: 18px;
 }
+
 .bt-wrapper p {
   font-family: inherit;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
   font-size: 15px;
 }
+
 .listIco-wrapper {
   height: 100%;
   float: left;
   margin-left: 20px;
 }
+
 .ListGameIco .listIco {
   width: 40px;
   height: 40px;
@@ -174,6 +190,7 @@ export default {
   padding-top: 10px;
   margin-left: 15px;
 }
+
 .main {
   min-height: 1500px;
 }

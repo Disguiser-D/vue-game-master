@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { mount } from '@vue/test-utils';
+import {mount} from '@vue/test-utils';
 import myhead from './myhead';
 
 describe('<v-footer/>', () => {
