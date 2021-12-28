@@ -10,10 +10,12 @@
             </div>
         </div>
         <div class="shopping-main">
-          <p class="price" v-if="is_discount(gameData.newPrice)">标准版{{ gameData.oldPrice === 0 ? "免费" : "￥" + gameData.oldPrice }}</p>
-          <div class="priceDiscount" v-else><div class="version">标准版</div><del class="price">{{  "￥" + gameData.oldPrice }}</del>
+          <div>
+          <p class="price border-s" v-if="is_discount(gameData.newPrice)">标准版 {{ gameData.oldPrice === 0 ? "免费" : "￥" + gameData.oldPrice }}</p>
+          <div class="priceDiscount border-s" v-else><div class="version">标准版 </div><del class="price">{{  "￥" + gameData.oldPrice }}</del>
             {{  "￥" + gameData.newPrice }}
             <div class="meka-price-label--discount-label">-{{  100-gameData.discount*100 }}%</div></div>
+          </div>
           <el-button class="short">{{ gameData.oldPrice === 0 ? '免费游戏':'立即购买' }}</el-button>
             <div class="shopping-p">
                 <game-icon :size=4 :type=2></game-icon>
@@ -76,9 +78,9 @@ export default {
         alert("请求失败")
       })
     },
-    is_discount(newprice){
+    is_discount(newPrice){
       // console.log(this.item);
-      return newprice === 0;
+      return newPrice === 0;
     },
   },
 }
@@ -161,6 +163,11 @@ export default {
     //position: absolute;
     //top: 165px;
     }
+    .shopping-main .border-s {
+      border-style: solid;
+      border-color: #235ed0;
+      border-width: 2px;
+    }
     .shopping-main .version {
       //align-items: center;
     //display: flex;
@@ -178,6 +185,7 @@ export default {
     .shopping-main .priceDiscount {
       color: #6cdb00;
       font-size: 30px;
+      //border-bottom-color: #6cdb00;
     //padding-right: 100px;
     //float: right;
     //display: inline-block;
