@@ -5,8 +5,12 @@ export function get (url) {
         return axios.get(url, {
             params
         }).then((res) => {
-            console.log(res.data.recommend)
-            return res.data
+            console.log(res)
+            if (res.data) {
+                return res.data
+            } else {
+                return res
+            }
         }).catch((e) => {
             console.log(e)
         })

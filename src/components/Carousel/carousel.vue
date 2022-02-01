@@ -2,18 +2,18 @@
   <div class="block">
     <el-carousel @change="Am" height="300px" :interval="5000" arrow="hover">
       <!--      TODO:这里是轮播图-->
-      <a href="https://www.baidu.com">
-        <el-carousel-item v-for="item in Carousel" :key="item.id">
+      <el-carousel-item v-for="item in Carousel" :key="item.id">
+        <a href="https://www.baidu.com">
           <img ref="imgAms" class="img" :src="'https://'+item.bgImgUrl"/>
-          <div class="box">
-            <img class="icon" :src="'https://'+item.icon"/>
-            <div class="announcement">
-              <p>{{ item.announcement }}</p>
-              <el-button type="primary">立即购买</el-button>
-            </div>
+        </a>
+        <div class="box">
+          <img class="icon" :src="'https://'+item.icon"/>
+          <div class="announcement">
+            <p>{{ item.announcement }}</p>
+            <el-button type="primary">立即购买</el-button>
           </div>
-        </el-carousel-item>
-      </a>
+        </div>
+      </el-carousel-item>
     </el-carousel>
   </div>
 </template>

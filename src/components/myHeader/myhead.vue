@@ -59,7 +59,7 @@
 <script>
 
 import GameIcon from '@/components/GameIcon/GameIcon'
-import {getUserInfo} from "@/api";
+import {getOut, getUserInfo} from "@/api";
 
 export default {
 
@@ -111,11 +111,7 @@ export default {
     },
     get_out_account() {
       getOut().then((results) => {
-        if (results.status !== 403) {
-          console.log(results);
-        } else {
-          console.log(results);
-        }
+        localStorage.removeItem("Authorization");
       }).catch(
           function (error) {
             // console.log(error);
